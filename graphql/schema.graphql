@@ -1,0 +1,14 @@
+type Query {
+    users: [User!]! @all
+    user(id: ID @eq): User @find
+}
+
+type User {
+    id: ID!
+    name: String!
+    email: String!
+    street: String!
+    city: String!
+    country: String!
+
+}
