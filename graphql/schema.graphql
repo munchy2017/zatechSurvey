@@ -3,6 +3,8 @@ type Query {
     user(id: ID @eq): User @find
 }
 
+
+
 type User {
     id: ID!
     name: String!
@@ -10,5 +12,30 @@ type User {
     street: String!
     city: String!
     country: String!
+
+}
+
+type Questionnaire {
+    id: ID!
+    name: String!
+    purpose: String!
+
+
+}
+
+type Question {
+    id: ID!
+    questionnaire_id: String!
+    question: String!
+
+
+}
+
+
+type Answer {
+    id: ID!
+    question_id: String!
+    answer: String!
+
 
 }
