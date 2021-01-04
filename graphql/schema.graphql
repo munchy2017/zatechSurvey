@@ -15,27 +15,9 @@ type User {
 
 }
 
-type Questionnaire {
-    id: ID!
-    name: String!
-    purpose: String!
 
 
-}
-
-type Question {
-    id: ID!
-    questionnaire_id: String!
-    question: String!
 
 
-}
 
 
-type Answer {
-    id: ID!
-    question_id: String!
-    answer: String!
-
-
-}
