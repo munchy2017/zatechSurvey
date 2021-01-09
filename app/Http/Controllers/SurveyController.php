@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class SurveyController extends Controller
 {
     //
-    public function show(\App\Models\Questionnaire $questionnaire){
+    public function show(Questionnaire $questionnaire){
        // dd($questionnaire);
         $questionnaire->load('questions.answers');
         return view('survey.show',compact('questionnaire'));
@@ -26,7 +26,7 @@ class SurveyController extends Controller
        'survey.name'=>'required',
        'survey.email'=>'required|email',
         ]);
-      
+
 
        $survey = $questionnaire->survey()->create($data['survey']);
        $survey->responses()->createMany($data['responses']);

@@ -4,14 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Questionnaire;
+use App\Models\Question;
 
 class QuestionController extends Controller
 {
-    public function create(\App\Models\Questionnaire $questionnaire){
+    public function create(Questionnaire $questionnaire){
         return view('question.create',compact('questionnaire'));
     }
 
-    public function store (\App\Models\Questionnaire $questionnaire){
+    public function store (Questionnaire $questionnaire){
        // dd(request()->all());
         $data =request()->validate([
             'question.question'=>'required',
@@ -20,12 +21,11 @@ class QuestionController extends Controller
 
         $question= $questionnaire->questions()->create($data['question']);
         $question->answers()->createMany($data['answers']);
-
         //dd($data);
         return redirect('/questionnaires/'.$questionnaire->id);
     }
 
-    public function destroy(\App\Models\Questionnaire $questionnaire, \App\Models\Question $question){
+    public function destroy(Questionnaire $questionnaire, Question $question){
 
       $question->answers()->delete();
       $question->delete();

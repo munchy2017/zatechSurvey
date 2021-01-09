@@ -13,7 +13,7 @@ class QuestionnaireController extends Controller
     public function __construct(){
         $this->middleware('auth');
     }
-   
+
     //
     public function create(){
         return view('questionnaire.create');
@@ -31,7 +31,7 @@ class QuestionnaireController extends Controller
         return redirect('/questionnaires/'.$questionnaire->id);
     }
 
-    public function show(\App\Models\Questionnaire $questionnaire){
+    public function show(Questionnaire $questionnaire){
         $questionnaire->load('questions.answers.responses');
         //dd($questionnaire);
         return view('questionnaire.show', compact('questionnaire'));

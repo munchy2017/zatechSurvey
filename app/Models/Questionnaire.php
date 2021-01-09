@@ -8,7 +8,7 @@ use Illuminate\Support\Str;
 
 class Questionnaire extends Model
 {
-    //use HasFactory;
+
     protected $guarded=[];
 
     public function path(){
